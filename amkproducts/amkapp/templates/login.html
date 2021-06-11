@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+a,
+button {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background: none;
+	text-decoration: none;
+}
+
+.container1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 80rem;
+	min-height: 100vh;
+	width: 100%;
+	padding: 0 2rem;
+	margin: 0 auto;
+}
+</style>
+<div class="container1">
+    <section class="wrapper" style="box-shadow: 0 0 10px #000000;">
+		<div class="heading">
+			<h1 class="text text-large">Sign In</h1>
+			<p class="text text-normal">New user? <span><a href="{% url 'signup' %}" class="text text-links">Create an account</a></span></p>
+		</div>
+		<form name="login" class="form" method="POST">
+			{% csrf_token %}
+			<div class="input-control">
+				<label for="username" class="input-label" hidden autocomplete="off">Username</label>
+				<input type="text" name="username" class="input-field" placeholder="Username">
+			</div>
+			<div class="input-control">
+				<label for="password" class="input-label" hidden autocomplete="off">Password</label>
+				<input type="password" name="password" class="input-field" placeholder="Password">
+			</div>
+			<div class="input-control">
+				<a href="#" class="text text-links">Forgot Password</a>
+				<input type="submit" name="submit" class="input-submit" value="Login">
+			</div>
+		</form>
+		<p class="text text-normal">Are You <span><a href="{% url 'admin-signin' %}" class="text text-links">Admin User?</a></span></p>
+	</section>
+</div>
+{% endblock content %}

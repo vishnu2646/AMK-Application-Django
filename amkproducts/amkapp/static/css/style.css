@@ -1,0 +1,269 @@
+.navbar{
+    height: 80px;
+    box-shadow: 0px 0px 25px 0 rgb(0 0 0 / 8%);
+    z-index:999;
+}
+  
+.main-nav{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 0 0 0px;
+}
+  
+.navlink{
+    margin:25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.658);
+}
+  
+.navlogo{
+    text-decoration: none;
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.781);
+}
+  
+.navlink:hover,.navlogo:hover{
+    text-decoration: none;
+    color: black;
+}
+  
+.navbar-toggler{
+    background-color: black;
+}
+
+.mobile-nav{
+    display: none;
+}
+  
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #FFAEBC;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 0px 0px 25px 0 rgb(0 0 0 / 8%);
+}
+  
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+}
+  
+.sidenav a:hover {
+    color: #000;
+}
+  
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+  
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+  
+@media(max-width:770px){
+    .navlink{
+        display: none;
+    }
+    .mobile-nav{
+        display: block;
+    }
+    .closebtn:hover{
+        text-decoration: none;
+    }
+    .header-social-links{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.btn{
+    background-color:#44c2fd;
+    color:#fff;
+}
+
+.btn:hover{
+    color: #fff;
+}
+
+
+.pricing-table{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: min(1600px, 100%);
+    margin: auto;
+}
+  
+.pricing-card{
+    flex: 1;
+    max-width: 360px;
+    background-color: #fff;
+    margin: 20px 10px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    color: #2d2d2d;
+    transition: .3s linear;
+    border:1px solid #ddd;
+}
+  
+.pricing-card-header{
+    background-color: #0fbcf9;
+    display: inline-block;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 0 0 20px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: .4s linear;
+}
+  
+.pricing-card:hover .pricing-card-header{
+    box-shadow: 0 0 0 26em #0fbcf9;
+}
+  
+.price{
+    font-size: 70px;
+    color: #0fbcf9;
+    margin: 40px 0;
+    transition: .2s linear;
+}
+  
+.price sup, .price span{
+    font-size: 22px;
+    font-weight: 700;
+}
+  
+.pricing-card:hover ,.pricing-card:hover .price{
+    color: #fff;
+}
+  
+.pricing-card li{
+    font-size: 16px;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+  
+.order-btn{
+    display: inline-block;
+    margin-bottom: 40px;
+    margin-top: 30px;
+    border: 2px solid #0fbcf9;
+    color: #0fbcf9;
+    padding: 18px 40px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: .3s linear;
+    text-decoration: none;
+}
+  
+.order-btn:hover{
+    background-color: #0fbcf9;
+    color: #fff;
+}
+  
+@media screen and (max-width:1100px){
+    .pricing-card{
+        flex: 50%;
+    }
+}
+
+.text {
+	font-family: inherit;
+	line-height: inherit;
+	text-transform: unset;
+    text-rendering: optimizeLegibility;
+}
+
+.text .text-large{
+    font-size: 2rem;
+	font-weight: 600;
+	color: black;
+}
+
+.form {
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+.input-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.wrapper{
+    max-width: 28rem;
+	width: 90%;
+	margin: 2rem auto;
+	padding: 2rem 2.5rem;
+	border: none;
+	outline: none;
+	border-radius: 0.25rem;
+	color:black;
+    background:white;
+}
+
+.input-field {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: inherit;
+    width: 100%;
+    height: auto;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    color: black;
+    background:#f1f5f9;
+    text-transform: unset;
+    text-rendering: optimizeLegibility;
+}
+
+.input-submit {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: inherit;
+    cursor: pointer;
+    min-width: 40%;
+    height: auto;
+    padding: 0.65rem 1.25rem;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    color: white;
+    background:#1a73e8;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+}
+
+

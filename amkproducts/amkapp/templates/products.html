@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div style="max-width:500px;">
+        <ul class="list-group">
+            {% for q in result %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ q.name }}
+                <span class="badge badge-primary badge-pill" style="background-color: blue;">{{ q.total_amt }}</span>
+            </li>
+            {% endfor %} 
+        </ul>
+    </div>
+    <h4 class="text-center">Product Ordered List</h4>
+    <br/>
+    <div style="overflow-x:auto;">
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>Srno</th>
+                    <th>Product Name</th>
+                    <th>Product Quantity</th>
+                    <th>Order Date</th>
+                    <th>Order Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{order.name}}</td>
+                    <td>{{order.quantity}} liter</td>
+                    <td>{{order.date}}</td>
+                    <td>{{order.status}}</td>
+                    <td>
+                        <a href="{% url 'order-edit' order.pk %}" class="btn m-2">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

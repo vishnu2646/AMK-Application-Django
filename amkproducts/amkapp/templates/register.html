@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    input[type='text'],input[type='password'],input[type='email']{
+        border: 0;
+        border-bottom: 1px solid #000;
+        border-radius: 0;
+        outline: 0;
+    }
+    a{
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background: none;
+	text-decoration: none;
+}
+</style>
+<section class="wrapper" style="box-shadow: 0 0 10px #000000;width: 90%;">
+    <div class="container mt-5">
+        <h3 class="text-center">Register Now...</h3>
+        <br/>
+        <form method="Post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{form.username.label}}
+                {{form.username}}
+            </div>
+            <br/>
+            <div class="form-group">
+                {{form.email.label}}
+                {{form.email}}
+            </div>
+            <br/>
+            <div class="form-group">
+                {{form.password1.label}}
+                {{form.password1}}
+            </div>
+            <br/>
+            <div class="form-group">
+                {{form.password2.label}}
+                {{form.password2}}
+            </div>
+            <br/>
+            <input type="Submit" value= "Submit" class="btn">
+        </form>
+        <p class="text text-normal" align="right">Note <span><a href="{% url 'signin' %}" class="text text-links">Already Have an account?</a></span></p>
+    </div>
+</section>
+{% endblock content %}

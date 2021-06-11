@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+li{
+    list-style:none;
+}
+</style>
+<div class="container mt-2">
+    <h3 class="text-center">Pricing List</h3>
+    <div class="pricing-table">
+        <div class="pricing-card">
+            <h3 class="pricing-card-header">Milk</h3>
+            <div class="price"><sup>&#8377; </sup>45<span>/Li</span></div>
+            <ul>
+                <li><strong>34</strong> 0.75 Litter </li>
+                <li><strong>22</strong> 0.5 Litter</li>
+                <li><strong>11</strong> 0.25 Litter</li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+            </ul>
+            <a href="{% url 'home' %}" class="order-btn">Order Now</a>
+        </div>
+
+        <div class="pricing-card">
+            <h3 class="pricing-card-header">Curd</h3>
+            <div class="price"><sup>&#8377; </sup>30<span>/Li</span></div>
+            <ul>
+                <li><strong>34</strong> 0.75 Litter </li>
+                <li><strong>22</strong> 0.5 Litter</li>
+                <li><strong>11</strong> 0.25 Litter</li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+            </ul>
+            <a href="{% url 'home' %}" class="order-btn">Order Now</a>
+        </div>
+
+        <div class="pricing-card">
+            <h3 class="pricing-card-header">Ghee</h3>
+            <div class="price"><sup>&#8377; </sup>50<span>/Li</span></div>
+            <ul>
+                <li><strong>34</strong> 0.75 Litter </li>
+                <li><strong>22</strong> 0.5 Litter</li>
+                <li><strong>11</strong> 0.25 Litter</li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+            </ul>
+            <a href="{% url 'home' %}" class="order-btn">Order Now</a>
+        </div>
+
+        <div class="pricing-card">
+            <h3 class="pricing-card-header">Butter</h3>
+            <div class="price"><sup>&#8377; </sup>80<span>/Li</span></div>
+            <ul>
+                <li><strong>34</strong> 0.75 Litter </li>
+                <li><strong>22</strong> 0.5 Litter</li>
+                <li><strong>11</strong> 0.25 Litter</li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+                <li><strong></strong></li>
+            </ul>
+            <a href="{% url 'home' %}" class="order-btn">Order Now</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
