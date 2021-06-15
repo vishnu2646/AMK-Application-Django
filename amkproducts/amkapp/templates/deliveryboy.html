@@ -52,7 +52,7 @@ $(document).ready(function(){
     <div style="overflow-x:auto;margin:15px;">
         <table class="table text-center" id="table-id">
             <thead>
-                <tr>
+                <tr id="myrow1">
                     <th>Product Name</th>
                     <th>Product Quantity</th>
                     <th>Order Date</th>
@@ -197,5 +197,18 @@ function getPagination(table) {
             $(this).prepend('<td>' + id + '</td>');
         });
     });
+</script>
+<script>
+window.onload = (function(){
+    var row = document.getElementById("myrow");
+    var x = row.insertCell(3);
+    var name = document.getElementById("name").innerText;
+    var qty = document.getElementById("qty").innerText;
+    var cprice=30;
+    for(var i=0;i<qty.length;i++){
+        price = cprice*qty;
+    }
+    x.innerHTML = price;
+})();
 </script>
 {% endblock content %}

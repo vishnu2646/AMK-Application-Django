@@ -11,26 +11,29 @@
             {% endfor %} 
         </ul>
     </div>
+    <br/>
     <h4 class="text-center">Product Ordered List</h4>
     <br/>
     <div style="overflow-x:auto;">
-        <table class="table text-center">
+        <table class="table text-center" id="mytable">
             <thead>
                 <tr>
                     <th>Srno</th>
                     <th>Product Name</th>
                     <th>Product Quantity</th>
+                    <th>Price</th>
                     <th>Order Date</th>
                     <th>Order Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="mytbody">
                 {% for order in orders %}
-                <tr>
+                <tr id="myrow">
                     <td>{{forloop.counter}}</td>
-                    <td>{{order.name}}</td>
-                    <td>{{order.quantity}} liter</td>
+                    <td id="name">{{order.name}}</td>
+                    <td id="qty">{{order.quantity}}</td>
+                    <td id="qty">{{order.quantity}}</td>
                     <td>{{order.date}}</td>
                     <td>{{order.status}}</td>
                     <td>
@@ -42,4 +45,26 @@
         </table>
     </div>
 </div>
+<script>
+    window.onload = (function(){
+        var qty = document.getElementById("qty").innerText;
+        price=45;
+        cprice=30;
+        table = document.getElementById('mytbody');
+        var array = [];
+        for(var i=0;i<table.rows.length;i++){
+            name = table.rows[i].cells[1].innerText;
+            var val = table.rows[i].cells[3].innerText;
+            if(name === 'milk'){
+                array.push(val*45)
+            }
+            else if(name === 'curd'){
+                array.push(val*30)
+            }
+        }
+        for(var i=0;i<table.rows.length;i++){
+            table.rows[i].cells[3].innerText = array[i];
+        }
+    })();
+</script>
 {% endblock content %}

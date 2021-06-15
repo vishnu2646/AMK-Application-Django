@@ -7,3 +7,10 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=100,null=True,blank=True,default="Ordered")
     customer = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    def get_total_item_price(self):
+        return self.quantity * self.item.CIEmailField()
+
+class Item(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.IntegerField() 
