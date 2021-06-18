@@ -31,4 +31,19 @@ class OrderForm(forms.ModelForm):
                 "placeholder": field.label,
                 'class': "form-control",
                 'autocomplete':"off"
-            }) 
+            })
+
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model = Payment
+        fields = ['amount']  
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name in self.fields:
+            field = self.fields.get(field_name)
+            self.fields[field_name].widget.attrs.update({
+                "placeholder": field.label,
+                'class': "form-control",
+                'autocomplete':"off"
+            })

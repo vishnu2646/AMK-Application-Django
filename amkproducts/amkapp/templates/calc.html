@@ -1,5 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+.card{
+    width:550px;
+}
+@media(max-width:564px){
+    .card{
+        width:330px;
+    }
+}
+@media print{
+    .navbar,.card,a,.btn{
+        display:none;
+    }
+    body{
+        margin:0;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid black;
+        text-align: center;
+    }
+}
+</style>
 <div class="container mt-5">
     <div>
         <div class="card">
@@ -9,11 +33,11 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="viewCountMin">Starting Date</label>
-                                <input type="date" class="form-control" id="publishDateMin" name="date_min">
+                                <input type="date" class="form-control" id="publishDateMin" name="date_min" required>
                         </div>
                         <div class="form-group">
                             <label for="viewCountMax">Ending Date</label>
-                            <input type="date" class="form-control" id="publishDateMax" name="date_max">
+                            <input type="date" class="form-control" id="publishDateMax" name="date_max" required>
                         </div>
                     </div>
                     <br/>
@@ -24,27 +48,60 @@
     </div>
     <br/>
     <div>
-        <a href="#" class="nav-link">Generate Bill</a> 
-        <table class="table table-responsive">
+        <a href="#" onclick="window.print()" style="text-decoration:none;border:1px solid #d8252f;padding:10px;background-color:#d8252f;color:white;border-radius:20px;">Generate Bill</a> 
+        <br/>
+        <table class="table-responsive">
             <thead>
                 <tr>
                     <th>srno</th>
                     <th>name</th>
                     <th>quantity</th>
-                    <th>status</th>
+                    <th>Price</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="mytbody">
                 {% for order in orderfilters %}
                     <tr>
                         <td>{{forloop.counter}}</td>
-                        <td>{{order.name}}</td>
-                        <td>{{order.quantity}}</td>
-                        <td>{{order.status}}</td>
+                        <td id="name">{{order.name}}</td>
+                        <td id="qty">{{order.quantity}}</td>
+                        <td id="qty1">{{order.quantity}}</td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <div style="display:flex;">
+            <h4>Total:</h4><h4 id="tot">0</h4>
+            <a href="{% url 'pay' %}" class="btn">Pay Now</a>
+        </div>
     </div>
 </div>
+<script>
+    window.onload = (function(){
+        var qty = document.getElementById("qty1").innerText;
+        price=45;
+        cprice=30;
+        sum=0;
+        table = document.getElementById('mytbody');
+        var array = [];
+        for(var i=0;i<table.rows.length;i++){
+            name = table.rows[i].cells[1].innerText;
+            var val = table.rows[i].cells[3].innerText;
+            if(name === 'milk'){
+                array.push(val*45)
+            }
+            else if(name === 'curd'){
+                array.push(val*30)
+            }
+        }
+        for(var i=0;i<table.rows.length;i++){
+            table.rows[i].cells[3].innerText = array[i];
+        }
+        for(var i=0;i<table.rows.length;i++){
+            sum += table.rows[i].cells[3].innerText = array[i];
+        }
+        document.getElementById("tot").innerHTML = Math.floor(sum);
+        
+    })();
+</script>
 {% endblock content %}

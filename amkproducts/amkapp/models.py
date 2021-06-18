@@ -13,4 +13,11 @@ class Order(models.Model):
 
 class Item(models.Model):
     name = models.CharField(max_length=100)
-    price = models.IntegerField() 
+    quantity = models.IntegerField() 
+
+class Payment(models.Model):
+    amount = models.IntegerField()
+    order_id = models.CharField(max_length=100)
+    razorpay_payment_id = models.CharField(max_length=100)
+    paid = models.BooleanField(default=False)
+    

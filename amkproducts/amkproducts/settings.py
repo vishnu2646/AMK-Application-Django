@@ -115,7 +115,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE =True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+RAZORPAY_API_KEY = 'rzp_test_5xu39CbqhRl6vA'
+RAZORPAY_API_SECRET_KEY = 'sbHd8Laqb7WbCoSkT3tOLcz4'

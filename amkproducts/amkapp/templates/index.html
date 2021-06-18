@@ -2,6 +2,9 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <style>
+.alert{
+    display:none;
+}
 @media(max-width:770px){
     .mobile{
         width:300px;
@@ -12,6 +15,9 @@
 }
 </style>
 <div class="container mt-5 py-2">
+    <div class="alert alert-danger" role="alert">
+       <span class="text-center">Sorry, There is No Stock...</span>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <div class="container">
@@ -38,16 +44,6 @@
         </div>
     </div>
     <br/>
-    {% comment %} <div style="display:flex;justify-content:center;align-items:center;">
-        <div class="card">
-            <div class="card-body">
-                <h4>Total Milk Amount:50</h4>
-                <h4>Total Curd Amount:50</h4>
-                <h4>Total Ghee Amount:50</h4>
-                <h4>Total:50</h4>
-            </div>
-        </div>
-    </div> {% endcomment %}
 </div>
 
 

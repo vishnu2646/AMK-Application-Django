@@ -35,6 +35,14 @@
 
         .dropdown:hover .dropdown-content {display: block;}
         </style>
+        <script>
+        $(function () {
+            $(window).bind("beforeunload", function () {
+                fnLogOut();
+            })
+        });
+        function fnLogOut() { alert('browser closing'); }
+        </script>
     </head>
     <body oncontextmenu="return false;">
         <nav class="navbar">
@@ -49,12 +57,14 @@
                             <li><a href="{% url 'delivery' %}" class="navlink">Order-Details</a></li>
                         {% endif %}
                         {% comment %} <li><a href="#" class="navlink"> <span class="text-muted" style="font-size:15px;">{{request.user}}</span></a></li> {% endcomment %}
+                        {% if request.user %}
                         <div class="dropdown">
                             <a href="#" class="dropbtn navlink text-muted"><span style="font-size:15px;">{{request.user}}</span></a>
                             <div class="dropdown-content">
                                 <a href="{% url 'logout' %}" class="text-center">Logout</a>
                             </div>
                         </div>
+                        {% endif %}
                     {% endif %}
                 </ul>
                 <span class="mobile-nav" style="font-size:30px;cursor:pointer;color:#000;" onclick="openNav()">&#9776;</span>

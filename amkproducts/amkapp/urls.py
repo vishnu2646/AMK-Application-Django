@@ -12,5 +12,7 @@ urlpatterns = [
     path('logout/',views.logoutUser,name="logout"),
     path('register/',views.register,name="signup"),
     # checking
-    path('calc/',views.caluclation,name="calc"),
+    path('bill/',views.caluclation,name="calc"),
+    path('payment/',views.payment,name="pay"),
+    path('success/',views.payment_status,name="payment-success"),
 ]

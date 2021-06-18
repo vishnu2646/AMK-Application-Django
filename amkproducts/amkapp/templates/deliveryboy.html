@@ -12,6 +12,33 @@ $(document).ready(function(){
 });
 </script>
 <div class="container mt-5">
+    <div class="avail" style="display: flex;align-items: center;justify-content: center;">
+        <div class="card">
+            <div class="card-body">
+                <p class="text-center">Availed Stock</p>
+                <h5>MILK : <span class="text-muted" id="avail-milk">{{res}}</span></h5>
+                <h5>CURD : <span class="text-muted" id="avail-curd">{{result1}}</span></h5>
+            </div>
+        </div>
+    </div>
+    <div class="stock m-5">
+        <h4 class="text-center" style="margin:5px;">Stock Details</h4>
+        <br/>
+        <div class="row">
+            {% for item in items %}
+            <div class="col">
+                <div class="card" id="card-Stock" style="margin:10px;">
+                    <div class="card-body">
+                        <h3 class="text-center" id="stock-name">Product: {{ item.name }}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <h6 class="text-center" id="stock-qty">Quantity: {{ item.quantity }}</h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
     <div class="Ordered m-5">
         <h4 class="text-center" style="margin:5px;">Total Orders</h4>
         <br/>
@@ -20,10 +47,10 @@ $(document).ready(function(){
             <div class="col">
                 <div class="card" style="margin:10px;">
                     <div class="card-body">
-                        <h3 class="text-center">Product: {{ q.name }}</h3>
+                        <h3 class="text-center" id="order-name">Product: {{ q.name }}</h3>
                     </div>
                     <div class="card-footer">
-                        <h6 class="text-center">Quantity: {{ q.total_amt }}</h6>
+                        <h6 class="text-center" id="order-qty">Quantity: {{ q.total_amt }}</h6>
                     </div>
                 </div>
             </div>
@@ -189,6 +216,11 @@ function getPagination(table) {
         }
     }
 
+    var a = document.getElementById("avail-curd").innerText
+    if(a === 7.75){
+        alert("No Stock");
+    }
+    
     $(function() {
         $('table tr:eq(0)').prepend('<th> SRNO </th>');
         var id = 0;
@@ -197,18 +229,5 @@ function getPagination(table) {
             $(this).prepend('<td>' + id + '</td>');
         });
     });
-</script>
-<script>
-window.onload = (function(){
-    var row = document.getElementById("myrow");
-    var x = row.insertCell(3);
-    var name = document.getElementById("name").innerText;
-    var qty = document.getElementById("qty").innerText;
-    var cprice=30;
-    for(var i=0;i<qty.length;i++){
-        price = cprice*qty;
-    }
-    x.innerHTML = price;
-})();
 </script>
 {% endblock content %}
